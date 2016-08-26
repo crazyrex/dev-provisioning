@@ -24,6 +24,11 @@ Status 'sudo apt-get install -y build-essential' 'Build Essential (for NPM)'
 Status 'sudo npm install -g gulp' 'Gulp'
 
 echo '
+Status:
+'
+cat /tmp/status.txt
+
+echo '
 cd ~/Code || mkdir ~/Code && cd ~/Code
 parse_git_branch() {
   git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/ (\1)/"
