@@ -35,6 +35,8 @@ cd ~/Code
 
 mkdir ~/Code
 
+clear
+
 echo '
 Status:
 '
