@@ -23,6 +23,15 @@ sudo rm /var/lib/dpkg/lock
 Status 'sudo apt-get install -y build-essential' 'Build Essential (for NPM)'
 Status 'sudo npm install -g gulp' 'Gulp'
 
+Status 'apm install minimap' 'Atom: minimap'
+Status 'apm install file-icons' 'Atom: file-icons'
+Status 'apm install pigments' 'Atom: pigments'
+Status 'apm install linter-eslint' 'Atom: linter-eslint'
+Status 'apm install highlight-selected' 'Atom: highlight-selected'
+Status 'apm install minimap-highlight-selected' 'Atom: minimap-highlight-selected'
+Status 'apm install autoclose-html' 'Atom: autoclose-html'
+Status 'apm install monokai' 'Atom: monokai'
+
 echo '
 parse_git_branch() {
   git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/ (\1)/"
