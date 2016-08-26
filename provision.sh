@@ -57,3 +57,5 @@ Run: source ~/.bashrc
 
 =====================
 '
+
+atom
