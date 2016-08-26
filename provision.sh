@@ -41,3 +41,4 @@ echo '
 Status:
 '
 cat /tmp/status.txt
+echo
