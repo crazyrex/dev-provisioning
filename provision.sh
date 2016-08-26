@@ -57,9 +57,10 @@ cat /tmp/status.txt
 echo '
 =====================
 
-Run: source ~/.bashrc
+Run:
+source ~/.bashrc
+google-chrome --disable-gpu&
+atom --disable-gpu&
 
 =====================
 '
-google-chrome --disable-gpu&
-atom --disable-gpu&
