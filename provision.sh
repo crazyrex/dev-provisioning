@@ -11,9 +11,9 @@ sudo dpkg -i atom.deb || sudo apt-get -f install -y
 
 sudo rm /var/lib/dpkg/lock
 
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.6/install.sh | bash
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
-source ~/.bashrc
+sudo rm /var/lib/dpkg/lock
 
-nvm install node
-
+sudo npm install -g gulp
