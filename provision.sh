@@ -6,3 +6,9 @@ sudo dpkg -i chrome.deb || sudo apt-get -f install -y
 
 wget https://atom.io/download/deb -O atom.deb
 sudo dpkg -i atom.deb || sudo apt-get -f install -y
+
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.6/install.sh | bash
+
+source ~/.bashrc
+
+nvm install node
