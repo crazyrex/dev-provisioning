@@ -84,10 +84,17 @@ echo '"*":
       "source.js": [
         "jsx"
       ]
+    openEmptyEditorOnStart: false
     themes: [
       "one-dark-ui"
       "monokai"
     ]
+  editor:
+    fontSize: 17
+    preferredLineLength: 100
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
   "exception-reporting":
     userId: "823c51ef-3832-c8de-dcc7-c51e3c5cfd49"
   minimap:
