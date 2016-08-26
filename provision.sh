@@ -60,8 +60,43 @@ echo '
 Run:
 source ~/.bashrc
 
+In Atom:
+  Package > autoclose-html > Force inline > Add li, p
+
 =====================
 '
+
+echo '"*":
+  "autoclose-html":
+    forceInline: [
+      "title"
+      "h1"
+      "h2"
+      "h3"
+      "h4"
+      "h5"
+      "h6"
+      "li"
+      "p"
+    ]
+  core:
+    customFileTypes:
+      "source.js": [
+        "jsx"
+      ]
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
+  "exception-reporting":
+    userId: "823c51ef-3832-c8de-dcc7-c51e3c5cfd49"
+  minimap:
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  welcome:
+    showOnStartup: false
+' > ~/.atom/config.cson 
 
 google-chrome --disable-gpu&
 atom --disable-gpu&
