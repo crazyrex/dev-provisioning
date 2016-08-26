@@ -1,5 +1,8 @@
 #!/bin/bash   
 
+# Run this script by pasting this into a terminal on a fresh new VM
+# sudo wget -O - https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision.sh | bash
+
 Status () {
 	$1 && echo [OK] $2 >> /tmp/status.txt || echo [Failure] $2 >> /tmp/status.txt
 }
