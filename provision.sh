@@ -58,5 +58,5 @@ Run: source ~/.bashrc
 
 =====================
 '
-google-chrome&
-atom&
+google-chrome --blacklist-accelerated-composting&
+atom --disable-gpu&
