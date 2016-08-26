@@ -60,9 +60,6 @@ echo '
 Run:
 source ~/.bashrc
 
-In Atom:
-  Package > autoclose-html > Force inline > Add li, p
-
 =====================
 '
 
