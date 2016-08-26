@@ -59,8 +59,9 @@ echo '
 
 Run:
 source ~/.bashrc
-google-chrome --disable-gpu&
-atom --disable-gpu&
 
 =====================
 '
+
+google-chrome --disable-gpu&
+atom --disable-gpu&
