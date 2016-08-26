@@ -102,5 +102,5 @@ echo '"*":
     showOnStartup: false
 ' > ~/.atom/config.cson 
 
-google-chrome --disable-gpu&
+google-chrome --disable-gpu 'http://localhost:8000'&
 atom ~/Code --disable-gpu&
