@@ -57,5 +57,5 @@ Run: source ~/.bashrc
 
 =====================
 '
-
+google-chrome
 atom
