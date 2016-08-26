@@ -103,4 +103,4 @@ echo '"*":
 ' > ~/.atom/config.cson 
 
 google-chrome --disable-gpu&
-atom --disable-gpu&
+atom ~/Code --disable-gpu&
