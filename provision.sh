@@ -10,15 +10,16 @@ Status () {
 cd /tmp
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb
+sudo rm /var/lib/dpkg/lock
 sudo dpkg -i chrome.deb
 Status 'sudo apt-get -f install -y' 'Chrome'
-sudo rm /var/lib/dpkg/lock
 
 wget https://atom.io/download/deb -O atom.deb
+sudo rm /var/lib/dpkg/lock
 sudo dpkg -i atom.deb
 Status 'sudo apt-get -f install -y' 'Atom'
-sudo rm /var/lib/dpkg/lock
 
+sudo rm /var/lib/dpkg/lock
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 Status 'sudo apt-get install -y nodejs' 'Node'
 sudo rm /var/lib/dpkg/lock
