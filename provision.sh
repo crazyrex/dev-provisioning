@@ -52,6 +52,9 @@ email_name=jonathan.verrecchia
 email_provider=@gmail.com
 git config --global user.email $email_name$email_provider
 git config --global user.name "Jonathan Verrecchia"
+ssh-keygen -t rsa -b 4096 -C $email_name$email_provider -f /home/verekia/.ssh/id_rsa -N ''
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
 
 clear
 
@@ -64,10 +67,15 @@ echo '
 
 Run:
 source ~/.bashrc
-git clone <REPO>
+git clone git@github.com:verekia/<REPO>.git
 cd <REPO>
 npm install
 
+Add SSH Key to GitHub:
+'
+cat ~/.ssh/id_rsa.pub
+
+echo '
 =====================
 '
 
