@@ -72,17 +72,18 @@ cat /tmp/status.txt
 echo '
 =====================
 
-Run:
-  source ~/.bashrc
-  git clone git@github.com:verekia/<REPO>.git
-  cd <REPO>
-  npm install
-
 Add SSH Key to GitHub:
 '
 cat ~/.ssh/id_rsa.pub
 
 echo '
+
+Then run:
+  source ~/.bashrc
+  git clone git@github.com:verekia/<REPO>.git
+  cd <REPO>
+  npm install
+
 =====================
 '
 
