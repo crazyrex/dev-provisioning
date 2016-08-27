@@ -48,6 +48,11 @@ cd ~/Code
 
 mkdir ~/Code
 
+email_name=jonathan.verrecchia
+email_provider=@gmail.com
+git config --global user.email $email_name$email_provider
+git config --global user.name "Jonathan Verrecchia"
+
 clear
 
 echo '
