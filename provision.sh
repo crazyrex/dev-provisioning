@@ -73,10 +73,10 @@ echo '
 =====================
 
 Run:
-source ~/.bashrc
-git clone git@github.com:verekia/<REPO>.git
-cd <REPO>
-npm install
+  source ~/.bashrc
+  git clone git@github.com:verekia/<REPO>.git
+  cd <REPO>
+  npm install
 
 Add SSH Key to GitHub:
 '
