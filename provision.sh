@@ -7,27 +7,28 @@ Status () {
 	$1 && echo [OK] $2 >> /tmp/status.txt || echo [Failure] $2 >> /tmp/status.txt
 }
 
+DeleteLock () {
+sudo rm /var/lib/apt/lists/lock
+sudo rm /var/lib/dpkg/lock
+sudo dpkg --configure -a
+}
+
 cd /tmp
 
-sudo dpkg --configure -a
-
-Status 'sudo apt-get update' 'Apt-get Update'
-Status 'sudo apt-get -y upgrade' 'Apt-get Upgrade'
-
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb
-sudo rm /var/lib/dpkg/lock
+DeleteLock
 sudo dpkg -i chrome.deb
 Status 'sudo apt-get -f install -y' 'Chrome'
 
 wget https://atom.io/download/deb -O atom.deb
-sudo rm /var/lib/dpkg/lock
+DeleteLock
 sudo dpkg -i atom.deb
 Status 'sudo apt-get -f install -y' 'Atom'
 
-sudo rm /var/lib/dpkg/lock
+DeleteLock
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 Status 'sudo apt-get install -y nodejs' 'Node'
-sudo rm /var/lib/dpkg/lock
+DeleteLock
 
 Status 'sudo apt-get install -y build-essential' 'Build Essential (for NPM)'
 Status 'sudo npm install -g gulp' 'Gulp'
