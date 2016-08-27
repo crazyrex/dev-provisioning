@@ -9,6 +9,9 @@ Status () {
 
 cd /tmp
 
+Status 'sudo apt-get update' 'Apt-get Update'
+Status 'sudo apt-get -y upgrade' 'Apt-get Upgrade'
+
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb
 sudo rm /var/lib/dpkg/lock
 sudo dpkg -i chrome.deb
