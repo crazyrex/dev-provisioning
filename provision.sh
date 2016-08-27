@@ -9,6 +9,8 @@ Status () {
 
 cd /tmp
 
+sudo dpkg --configure -a
+
 Status 'sudo apt-get update' 'Apt-get Update'
 Status 'sudo apt-get -y upgrade' 'Apt-get Upgrade'
 
