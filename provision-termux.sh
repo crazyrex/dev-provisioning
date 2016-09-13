@@ -9,12 +9,22 @@ Status () {
 	$1 && echo [OK] $2 >> .tmp/status.txt || echo [Failure] $2 >> .tmp/status.txt
 }
 
+# Git
+
 Status 'apt install -y git' 'Git'
-Status 'apt install -y vim' 'VIM'
+email_name=jonathan.verrecchia
+email_provider=@gmail.com
+git config --global user.email $email_name$email_provider
+git config --global user.name "Jonathan Verrecchia"
+
+# Node
+
 Status 'apt install nodejs -y' 'NodeJS'
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# VIM
 
+Status 'apt install -y vim' 'VIM'
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "
 set nocompatible
 filetype off
@@ -27,19 +37,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'sickill/vim-monokai'
 call vundle#end()
 filetype plugin indent on
-" >> ~/.vimrc
-
-Status 'vim +PluginInstall +qall' 'Vundle and Plugins'
-
-echo "
 syntax enable
-colorscheme monokai
+silent! colorscheme monokai
 " >> ~/.vimrc
 
-email_name=jonathan.verrecchia
-email_provider=@gmail.com
-git config --global user.email $email_name$email_provider
-git config --global user.name "Jonathan Verrecchia"
+Status 'vim +silent +PluginInstall +qall' 'Vundle and Plugins'
 
 echo '
 Status:
