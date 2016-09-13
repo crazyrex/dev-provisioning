@@ -51,4 +51,4 @@ echo '
 Press Volume Up + Q for extra keys
 '
 
-vim +PluginInstall +qall 2>/.tmp/devnull
+vim +PluginInstall +qall 2>~/.tmp/devnull
