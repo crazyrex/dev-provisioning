@@ -49,7 +49,6 @@ echo '
 =====================
 
 Press Volume Up + Q for extra keys
-
 '
 
 vim +PluginInstall +qall > .tmp/devnull.txt
