@@ -41,8 +41,6 @@ syntax enable
 silent! colorscheme monokai
 " >> ~/.vimrc
 
-Status 'vim +silent +PluginInstall +qall' 'Vundle and Plugins'
-
 echo '
 Status:
 '
@@ -53,3 +51,6 @@ echo '
 Press Volume Up + Q for extra keys
 
 '
+
+vim +PluginInstall +qall
+
