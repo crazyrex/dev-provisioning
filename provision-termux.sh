@@ -1,9 +1,6 @@
 # Run this script by pasting this command into a terminal on a fresh new Termux install
 # apt update && apt upgrade -y && apt install -y curl && curl https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision-termux.sh | bash
 
-# git config, nvm, Node latest, https://github.com/mtscout6/syntastic-local-eslint.vim/blob/master/README.md
-# add aliases like git s for git status
-
 mkdir .tmp
 Status () {
 	$1 && echo [OK] $2 >> .tmp/status.txt || echo [Failure] $2 >> .tmp/status.txt
