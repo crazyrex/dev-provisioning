@@ -52,5 +52,5 @@ Press Volume Up + Q for extra keys
 
 '
 
-vim +PluginInstall +qall
+vim +PluginInstall +qall > .tmp/devnull.txt
 
