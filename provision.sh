@@ -31,17 +31,19 @@ Status 'sudo apt-get install -y nodejs' 'Node'
 DeleteLock
 
 Status 'sudo apt-get install -y build-essential' 'Build Essential (for NPM)'
-Status 'sudo npm install -g gulp' 'Gulp'
+Status 'sudo npm i -g gulp' 'Gulp'
 
-Status 'apm install minimap' 'Atom: minimap'
-Status 'apm install file-icons' 'Atom: file-icons'
-Status 'apm install pigments' 'Atom: pigments'
-Status 'apm install linter' 'Atom: linter'
-Status 'apm install linter-eslint' 'Atom: linter-eslint'
-Status 'apm install highlight-selected' 'Atom: highlight-selected'
-Status 'apm install minimap-highlight-selected' 'Atom: minimap-highlight-selected'
-Status 'apm install autoclose-html' 'Atom: autoclose-html'
-Status 'apm install monokai' 'Atom: monokai'
+Status 'apm i minimap' 'Atom: minimap'
+Status 'apm i file-icons' 'Atom: file-icons'
+Status 'apm i pigments' 'Atom: pigments'
+Status 'apm i linter' 'Atom: linter'
+Status 'apm i linter-eslint' 'Atom: linter-eslint'
+Status 'apm i highlight-selected' 'Atom: highlight-selected'
+Status 'apm i minimap-highlight-selected' 'Atom: minimap-highlight-selected'
+Status 'apm i autoclose-html' 'Atom: autoclose-html'
+Status 'apm i atom-ternjs' 'Atom: atom-ternjs'
+Status 'apm i monokai' 'Atom: monokai'
+
 
 echo '
 parse_git_branch() {
