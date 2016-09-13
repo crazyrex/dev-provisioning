@@ -17,7 +17,7 @@ Status 'apt install -y git' 'Git'
 Status 'apt install -y vim' 'VIM'
 Status 'apt install nodejs -y' 'NodeJS'
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+Status 'git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim' 'Vundle'
 
 echo "
 set nocompatible
@@ -32,9 +32,7 @@ Plugin 'sickill/vim-monokai'
 call vundle#end()
 " >> ~/.vimrc
 
-cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
-
-vim +PluginInstall +qall
+Status 'vim +PluginInstall +qall' 'Vundle Plugins'
 
 echo "
 filetype plugin indent on
@@ -42,4 +40,18 @@ syntax enable
 colorscheme monokai
 " >> ~/.vimrc
 
-echo 'Press Volume Up + Q for extra keys'
+email_name=jonathan.verrecchia
+email_provider=@gmail.com
+git config --global user.email $email_name$email_provider
+git config --global user.name "Jonathan Verrecchia"
+
+echo '
+Status:
+'
+cat .tmp/status.txt
+echo '
+=====================
+
+Press Volume Up + Q for extra keys
+
+'
