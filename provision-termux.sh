@@ -13,7 +13,7 @@ Status 'apt install -y git' 'Git'
 Status 'apt install -y vim' 'VIM'
 Status 'apt install nodejs -y' 'NodeJS'
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "
 set nocompatible
