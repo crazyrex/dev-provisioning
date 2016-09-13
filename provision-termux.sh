@@ -13,6 +13,7 @@ email_name=jonathan.verrecchia
 email_provider=@gmail.com
 git config --global user.email $email_name$email_provider
 git config --global user.name "Jonathan Verrecchia"
+echo "alias gs='git status'" > .bash_profile
 
 # Node
 
@@ -57,9 +58,8 @@ echo '
 =====================
 
 Press Volume Up + Q for extra keys
-'
 
-alias gs='git status'
-echo "alias gs='git status'" > .bash_profile
+Run: source ~/.bash_profile
+'
 
 vim +PluginInstall +qall 2>~/.tmp/devnull
