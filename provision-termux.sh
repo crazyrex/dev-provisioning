@@ -62,7 +62,7 @@ echo '
 Press Volume Up + Q for extra keys
 '
 
+alias gs='git status'
 echo "alias gs='git status'" > .bash_profile
-source .bash_profile
 
 vim +PluginInstall +qall 2>~/.tmp/devnull
