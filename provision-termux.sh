@@ -26,12 +26,12 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
 Plugin 'sickill/vim-monokai'
 call vundle#end()
+filetype plugin indent on
 " >> ~/.vimrc
 
 Status 'vim +PluginInstall +qall' 'Vundle Plugins'
 
 echo "
-filetype plugin indent on
 syntax enable
 colorscheme monokai
 " >> ~/.vimrc
