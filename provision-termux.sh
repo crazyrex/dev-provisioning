@@ -13,7 +13,7 @@ Status 'apt install -y git' 'Git'
 Status 'apt install -y vim' 'VIM'
 Status 'apt install nodejs -y' 'NodeJS'
 
-Status 'git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim' 'Vundle'
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 
 echo "
 set nocompatible
@@ -29,7 +29,7 @@ call vundle#end()
 filetype plugin indent on
 " >> ~/.vimrc
 
-Status 'vim +PluginInstall +qall' 'Vundle Plugins'
+Status 'vim +PluginInstall +qall' 'Vundle and Plugins'
 
 echo "
 syntax enable
