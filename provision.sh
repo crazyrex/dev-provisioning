@@ -31,8 +31,6 @@ echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" 
 sudo apt-get update
 Status 'sudo apt-get install -y mongodb-org' 'MongoDB'
 Status 'sudo service mongod start' 'Started MongoDB'
-sudo mkdir /data
-mongod --dbpath=/data
 
 DeleteLock
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
