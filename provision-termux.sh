@@ -13,6 +13,7 @@ email_name=jonathan.verrecchia
 email_provider=@gmail.com
 git config --global user.email $email_name$email_provider
 git config --global user.name "Jonathan Verrecchia"
+git config --global push.default simple
 echo "alias gs='git status'" > .bash_profile
 
 # Node
