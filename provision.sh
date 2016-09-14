@@ -68,6 +68,7 @@ email_name=jonathan.verrecchia
 email_provider=@gmail.com
 git config --global user.email $email_name$email_provider
 git config --global user.name "Jonathan Verrecchia"
+git config --global push.default simple
 ssh-keygen -t rsa -b 4096 -C $email_name$email_provider -f /home/verekia/.ssh/id_rsa -N ''
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
