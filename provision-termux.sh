@@ -39,6 +39,8 @@ filetype plugin indent on
 syntax enable
 silent! colorscheme monokai
 
+set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
+
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
 
