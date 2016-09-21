@@ -63,6 +63,10 @@ echo '
 Press Volume Up + Q for extra keys
 
 Run: source ~/.bash_profile
+
+After cloning a project that uses git-hooks via git-guppy, change the shebang to:
+  #!/data/data/com.termux/files/usr/bin/node
+
 '
 
 vim +PluginInstall +qall 2>~/.tmp/devnull
