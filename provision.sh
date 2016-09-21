@@ -58,6 +58,10 @@ parse_git_branch() {
 }
 export PS1="\u \W\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
 
+export GIT_EDITOR=vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 google-chrome --disable-gpu &
 atom --disable-gpu &
 
@@ -72,6 +76,7 @@ email_provider=@gmail.com
 git config --global user.email $email_name$email_provider
 git config --global user.name "Jonathan Verrecchia"
 git config --global push.default simple
+git config --global core.editor "vim"
 ssh-keygen -t rsa -b 4096 -C $email_name$email_provider -f /home/verekia/.ssh/id_rsa -N ''
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
