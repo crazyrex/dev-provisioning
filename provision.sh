@@ -58,6 +58,9 @@ parse_git_branch() {
 }
 export PS1="\u \W\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
 
+google-chrome --disable-gpu &
+atom --disable-gpu &
+
 cd ~/Code
 
 ' >> ~/.bashrc
