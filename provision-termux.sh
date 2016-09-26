@@ -14,7 +14,23 @@ email_provider=@gmail.com
 git config --global user.email $email_name$email_provider
 git config --global user.name "Jonathan Verrecchia"
 git config --global push.default simple
-echo "alias gs='git status'" > .bash_profile
+git config --global core.editor "vim"
+echo "
+alias gs='git status'
+alias gd='git diff'
+alias ns='npm start'
+alias nt='npm test'
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/ (\1)/"
+}
+export PS1="\u \W\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+export GIT_EDITOR=vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+" > .bash_profile
 
 # Node
 
@@ -61,6 +77,8 @@ echo '
 =====================
 
 Press Volume Up + Q for extra keys
+Zoom-in to adjust font size.
+Set style to Monokai.
 
 Run: source ~/.bash_profile
 
