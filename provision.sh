@@ -70,9 +70,6 @@ export GIT_EDITOR=vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-google-chrome --disable-gpu &
-atom --disable-gpu &
-
 cd ~/Code
 
 ' >> ~/.bashrc
