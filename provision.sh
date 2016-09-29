@@ -172,18 +172,18 @@ parse_git_branch() {
 }
 export PS1="\u \W\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
 
-alias ga='git add'
-alias gc='git commit'
-alias gcl='git clone'
-alias gpull='git pull'
-alias gpush='git push'
-alias gs='git status'
-alias gd='git diff'
-alias ns='npm start'
-alias nt='npm test'
-alias ni='npm install'
-alias nid='npm install --save-dev'
-alias nis='npm install --save'
+alias ga="git add"
+alias gc="git commit"
+alias gcl="git clone"
+alias gpull="git pull"
+alias gpush="git push"
+alias gs="git status"
+alias gd="git diff"
+alias ns="npm start"
+alias nt="npm test"
+alias ni="npm install"
+alias nid="npm install --save-dev"
+alias nis="npm install --save"
 
 export GIT_EDITOR=vim
 export VISUAL=vim
