@@ -174,7 +174,7 @@ echo '
 parse_git_branch() {
   git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/ (\1)/"
 }
-export PS1="\u \W\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PS1="\W\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 alias ga="git add"
 alias gc="git commit"
@@ -204,8 +204,6 @@ alias atom='atom ~/Code --disable-gpu &'
 ' >> ~/.bashrc
 fi
 
-
-mkdir ~/Code
 
 email_name=jonathan.verrecchia
 email_provider=@gmail.com
@@ -269,6 +267,9 @@ After cloning a project that uses git-hooks via git-guppy, change the shebang to
   #!/data/data/com.termux/files/usr/bin/node
 '
 fi
+
+mkdir ~/Code
+cd ~/Code
 
 vim +PluginInstall +qall 2>~/.tmp/devnull
 
