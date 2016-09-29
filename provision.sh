@@ -65,6 +65,8 @@ alias gs='git status'
 alias gd='git diff'
 alias ns='npm start'
 alias nt='npm test'
+alias chrome="google-chrome --disable-gpu 'http://localhost:8000' &"
+alias atom='atom ~/Code --disable-gpu &'
 
 export GIT_EDITOR=vim
 export VISUAL=vim
@@ -149,6 +151,6 @@ echo '"*":
     showOnStartup: false
 ' > ~/.atom/config.cson 
 
-google-chrome --disable-gpu 'http://localhost:8000'&
-google-chrome --disable-gpu 'https://github.com/verekia?tab=repositories'&
+google-chrome --disable-gpu 'http://localhost:8000' &
+google-chrome --disable-gpu 'https://github.com/verekia?tab=repositories' &
 atom ~/Code --disable-gpu&
