@@ -193,8 +193,8 @@ cd ~/Code
 
 if $is_ubuntu; then
   echo '
-alias chrome="google-chrome --disable-gpu 'http://localhost:8000' &"
-alias atom='atom ~/Code --disable-gpu &'
+alias chrome="google-chrome --disable-gpu http://localhost:8000 &"
+alias atom="atom ~/Code --disable-gpu &"
 ' >> ~/.bashrc
 fi
 
@@ -213,15 +213,12 @@ if $is_ubuntu; then
   ssh-add ~/.ssh/id_rsa
 fi
 
-clear
-
 echo '
 Status:
 '
-cat .tmp/status.txt
+cat ~/.tmp/status.txt
 echo '
 ====================='
-
 
 
 if $is_ubuntu; then
