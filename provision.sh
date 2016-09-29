@@ -228,14 +228,12 @@ Status:
 '
 cat .tmp/status.txt
 echo '
-=====================
-'
+====================='
 
 
 
 if $is_ubuntu; then
   echo '
-
 Add SSH Key to GitHub:
 '
   cat ~/.ssh/id_rsa.pub
@@ -245,13 +243,11 @@ if $is_termux; then
   echo '
 Press Volume Up + Q for extra keys
 Zoom-in to adjust font size.
-Set style to Monokai.
-'
+Set style to Monokai.'
 fi
 
 
 echo '
-
 Then run:
   source ~/.bashrc
   git clone [Github Repo]
