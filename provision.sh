@@ -162,9 +162,13 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 " >> ~/.vimrc
 
+if $is_ubuntu; then
+  install_status 'sudo npm i -g gulp' 'Gulp'
+fi
 
-install_status 'sudo npm i -g gulp' 'Gulp'
-
+if $is_termux; then
+  install_status 'npm i -g gulp' 'Gulp'
+fi
 
 echo '
 parse_git_branch() {
@@ -193,7 +197,7 @@ cd ~/Code
 
 ' >> ~/.bashrc
 
-if [ $is_ubuntu ]; then
+if $is_ubuntu; then
   echo '
 alias chrome="google-chrome --disable-gpu 'http://localhost:8000' &"
 alias atom='atom ~/Code --disable-gpu &'
@@ -211,7 +215,7 @@ git config --global push.default simple
 git config --global core.editor 'vim'
 
 
-if [ $is_ubuntu ]; then
+if $is_ubuntu; then
   ssh-keygen -t rsa -b 4096 -C $email_name$email_provider -f /home/verekia/.ssh/id_rsa -N ''
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_rsa
@@ -229,7 +233,7 @@ echo '
 
 
 
-if [ $is_ubuntu ]; then
+if $is_ubuntu; then
   echo '
 
 Add SSH Key to GitHub:
@@ -237,7 +241,7 @@ Add SSH Key to GitHub:
   cat ~/.ssh/id_rsa.pub
 fi
 
-if [ $is_termux ]; then
+if $is_termux; then
   echo '
 Press Volume Up + Q for extra keys
 Zoom-in to adjust font size.
@@ -257,13 +261,13 @@ Then run:
 =====================
 '
 
-if [ $is_ubuntu ]; then
+if $is_ubuntu; then
   google-chrome --disable-gpu 'http://localhost:8000' &
   google-chrome --disable-gpu 'https://github.com/verekia?tab=repositories' &
   atom ~/Code --disable-gpu &
 fi
 
-if [ $is_termux ]; then
+if $is_termux; then
   echo '
 After cloning a project that uses git-hooks via git-guppy, change the shebang to:
   #!/data/data/com.termux/files/usr/bin/node
