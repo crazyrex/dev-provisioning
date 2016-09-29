@@ -178,6 +178,7 @@ export PS1="\W\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 alias ga="git add"
 alias gc="git commit"
+alias gch="git checkout"
 alias gcl="git clone"
 alias gpull="git pull"
 alias gpush="git push"
