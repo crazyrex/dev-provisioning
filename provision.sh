@@ -1,118 +1,93 @@
-#!/bin/bash   
+#!/bin/bash
 
 # Run this script by pasting this into a terminal on a fresh new VM
-# sudo wget -O - https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision.sh | bash
+# Ubuntu: sudo wget -O - https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision.sh | bash -s ubuntu
+# Termux: apt update && apt upgrade -y && apt install -y curl && curl https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision.sh | bash -s termux 
 
-Status () {
-	$1 && echo [OK] $2 >> /tmp/status.txt || echo [Failure] $2 >> /tmp/status.txt
+if [ $# -ne 1 ]; then
+  echo 'You need to pass one parameter to this script, like: | bash -s [ubuntu|termux]'
+  exit 1
+fi
+
+if [ $1 != 'termux' ] && [ $1 != 'ubuntu' ]; then
+  echo 'This is not a valid parameter. It should be "ubuntu" or "termux"'
+  exit 1
+fi
+
+if [ $1 = 'ubuntu' ]; then
+  is_ubuntu=true
+  is_termux=false
+fi
+
+if [ $1 = 'termux' ]; then
+  is_ubuntu=false
+  is_termux=true
+fi
+
+if $is_ubuntu; then
+  echo 'Ubuntu!'
+fi
+
+if $is_termux; then
+  echo 'Termux!'
+fi
+
+
+mkdir .tmp
+
+install_status () {
+  $1 && echo [OK] $2 >> .tmp/status.txt || echo [Failure] $2 >> .tmp/status.txt
 }
 
-DeleteLock () {
-sudo rm /var/lib/apt/lists/lock
-sudo rm /var/lib/dpkg/lock
-sudo dpkg --configure -a
+
+delete_lock () {
+  sudo rm /var/lib/apt/lists/lock
+  sudo rm /var/lib/dpkg/lock
+  sudo dpkg --configure -a
 }
 
-cd /tmp
+if $is_ubuntu; then
+  cd /tmp
 
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb
-DeleteLock
-sudo dpkg -i chrome.deb
-Status 'sudo apt-get -f install -y' 'Chrome'
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb
+  delete_lock
+  sudo dpkg -i chrome.deb
+  install_status 'sudo apt-get -f install -y' 'Chrome'
 
-wget https://atom.io/download/deb -O atom.deb
-DeleteLock
-sudo dpkg -i atom.deb
-Status 'sudo apt-get -f install -y' 'Atom'
+  wget https://atom.io/download/deb -O atom.deb
+  delete_lock
+  sudo dpkg -i atom.deb
+  install_status 'sudo apt-get -f install -y' 'Atom'
 
-DeleteLock
-sudo apt-get install -y vim
+  delete_lock
+  sudo apt-get install -y vim
 
-DeleteLock
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-sudo apt-get update
-Status 'sudo apt-get install -y mongodb-org' 'MongoDB'
-Status 'sudo service mongod start' 'Started MongoDB'
+  delete_lock
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+  echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+  sudo apt-get update
+  install_status 'sudo apt-get install -y mongodb-org' 'MongoDB'
+  install_status 'sudo service mongod start' 'Started MongoDB'
 
-DeleteLock
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-Status 'sudo apt-get install -y nodejs' 'Node'
-DeleteLock
+  delete_lock
+  curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  install_status 'sudo apt-get install -y nodejs' 'Node'
+  delete_lock
 
-Status 'sudo apt-get install -y build-essential' 'Build Essential (for NPM)'
-Status 'sudo npm i -g gulp' 'Gulp'
+  install_status 'sudo apt-get install -y build-essential' 'Build Essential (for NPM)'
 
-Status 'apm i minimap' 'Atom: minimap'
-Status 'apm i file-icons' 'Atom: file-icons'
-Status 'apm i pigments' 'Atom: pigments'
-Status 'apm i linter' 'Atom: linter'
-Status 'apm i linter-eslint' 'Atom: linter-eslint'
-Status 'apm i highlight-selected' 'Atom: highlight-selected'
-Status 'apm i minimap-highlight-selected' 'Atom: minimap-highlight-selected'
-Status 'apm i autoclose-html' 'Atom: autoclose-html'
-Status 'apm i atom-ternjs' 'Atom: atom-ternjs'
-Status 'apm i monokai' 'Atom: monokai'
+  install_status 'apm i minimap' 'Atom: minimap'
+  install_status 'apm i file-icons' 'Atom: file-icons'
+  install_status 'apm i pigments' 'Atom: pigments'
+  install_status 'apm i linter' 'Atom: linter'
+  install_status 'apm i linter-eslint' 'Atom: linter-eslint'
+  install_status 'apm i highlight-selected' 'Atom: highlight-selected'
+  install_status 'apm i minimap-highlight-selected' 'Atom: minimap-highlight-selected'
+  install_status 'apm i autoclose-html' 'Atom: autoclose-html'
+  install_status 'apm i atom-ternjs' 'Atom: atom-ternjs'
+  install_status 'apm i monokai' 'Atom: monokai'
 
-
-echo '
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/ (\1)/"
-}
-export PS1="\u \W\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
-
-alias gs='git status'
-alias gd='git diff'
-alias ns='npm start'
-alias nt='npm test'
-alias chrome="google-chrome --disable-gpu 'http://localhost:8000' &"
-alias atom='atom ~/Code --disable-gpu &'
-
-export GIT_EDITOR=vim
-export VISUAL=vim
-export EDITOR="$VISUAL"
-
-cd ~/Code
-
-' >> ~/.bashrc
-
-mkdir ~/Code
-
-email_name=jonathan.verrecchia
-email_provider=@gmail.com
-git config --global user.email $email_name$email_provider
-git config --global user.name "Jonathan Verrecchia"
-git config --global push.default simple
-git config --global core.editor "vim"
-ssh-keygen -t rsa -b 4096 -C $email_name$email_provider -f /home/verekia/.ssh/id_rsa -N ''
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
-
-clear
-
-echo '
-Status:
-'
-cat /tmp/status.txt
-echo '
-=====================
-
-Add SSH Key to GitHub:
-'
-cat ~/.ssh/id_rsa.pub
-
-echo '
-
-Then run:
-  source ~/.bashrc
-  git clone git@github.com:verekia/<REPO>.git
-  cd <REPO>
-  npm install
-
-=====================
-'
-
-echo '"*":
+  echo '"*":
   "autoclose-html":
     forceInline: [
       "title"
@@ -149,8 +124,153 @@ echo '"*":
       "highlight-selectedDecorationsZIndex": 0
   welcome:
     showOnStartup: false
-' > ~/.atom/config.cson 
+' > ~/.atom/config.cson
+fi
 
-google-chrome --disable-gpu 'http://localhost:8000' &
-google-chrome --disable-gpu 'https://github.com/verekia?tab=repositories' &
-atom ~/Code --disable-gpu&
+if $is_termux; then
+  install_status 'apt install -y git' 'Git'
+  install_status 'apt install nodejs -y' 'NodeJS'
+  install_status 'apt install -y vim' 'VIM'
+fi
+
+
+# VIM (both)
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+echo "
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/syntastic'
+Plugin 'sickill/vim-monokai'
+call vundle#end()
+filetype plugin indent on
+syntax enable
+silent! colorscheme monokai
+set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 3
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+" >> ~/.vimrc
+
+if $is_ubuntu; then
+  install_status 'sudo npm i -g gulp' 'Gulp'
+fi
+
+if $is_termux; then
+  install_status 'npm i -g gulp' 'Gulp'
+fi
+
+echo '
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/ (\1)/"
+}
+export PS1="\W\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+alias ga="git add"
+alias gc="git commit"
+alias gcl="git clone"
+alias gpull="git pull"
+alias gpush="git push"
+alias gs="git status"
+alias gd="git diff"
+alias ns="npm start"
+alias nt="npm test"
+alias nr="npm run"
+alias ni="npm install"
+alias nid="npm install --save-dev"
+alias nis="npm install --save"
+
+export GIT_EDITOR=vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+cd ~/Code
+
+' >> ~/.bashrc
+
+if $is_ubuntu; then
+  echo '
+alias chrome="google-chrome --disable-gpu 'http://localhost:8000' &"
+alias atom='atom ~/Code --disable-gpu &'
+' >> ~/.bashrc
+fi
+
+
+email_name=jonathan.verrecchia
+email_provider=@gmail.com
+git config --global user.email $email_name$email_provider
+git config --global user.name 'Jonathan Verrecchia'
+git config --global push.default simple
+git config --global core.editor 'vim'
+
+
+if $is_ubuntu; then
+  ssh-keygen -t rsa -b 4096 -C $email_name$email_provider -f /home/verekia/.ssh/id_rsa -N ''
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_rsa
+fi
+
+clear
+
+echo '
+Status:
+'
+cat .tmp/status.txt
+echo '
+====================='
+
+
+
+if $is_ubuntu; then
+  echo '
+Add SSH Key to GitHub:
+'
+  cat ~/.ssh/id_rsa.pub
+fi
+
+if $is_termux; then
+  echo '
+Press Volume Up + Q for extra keys
+Zoom-in to adjust font size.
+Set style to Monokai.'
+fi
+
+
+echo '
+Then run:
+  source ~/.bashrc
+  git clone [Github Repo]
+  cd <repo>
+  ni
+
+=====================
+'
+
+if $is_ubuntu; then
+  google-chrome --disable-gpu 'http://localhost:8000' &
+  google-chrome --disable-gpu 'https://github.com/verekia?tab=repositories' &
+  atom ~/Code --disable-gpu &
+fi
+
+if $is_termux; then
+  echo '
+After cloning a project that uses git-hooks via git-guppy, change the shebang to:
+  #!/data/data/com.termux/files/usr/bin/node
+'
+fi
+
+mkdir ~/Code
+cd ~/Code
+
+vim +PluginInstall +qall 2>~/.tmp/devnull
+
