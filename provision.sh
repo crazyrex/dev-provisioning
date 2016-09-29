@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run this script by pasting this into a terminal on a fresh new VM
-# Ubuntu: sudo wget -O - https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision.sh | bash -s ubuntu
+# Ubuntu: curl https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision.sh | bash -s ubuntu
 # Termux: apt update && apt upgrade -y && apt install -y curl && curl https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision.sh | bash -s termux 
 
 if [ $# -ne 1 ]; then
