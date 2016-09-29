@@ -2,7 +2,7 @@
 
 # Run this script by pasting this into a terminal on a fresh new VM
 # Ubuntu: sudo wget -O - https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision.sh | bash -s ubuntu
-# Termux: apt update && apt upgrade -y && apt install -y curl && curl https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision-termux.sh | bash -s termux 
+# Termux: apt update && apt upgrade -y && apt install -y curl && curl https://raw.githubusercontent.com/verekia/dev-provisioning/master/provision.sh | bash -s termux 
 
 if [ $# -ne 1 ]; then
   echo 'You need to pass one parameter to this script, like: | bash -s [ubuntu|termux]'
