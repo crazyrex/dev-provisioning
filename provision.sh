@@ -24,19 +24,11 @@ if [ $1 = 'termux' ]; then
   is_termux=true
 fi
 
-if $is_ubuntu; then
-  echo 'Ubuntu!'
-fi
 
-if $is_termux; then
-  echo 'Termux!'
-fi
-
-
-mkdir .tmp
+mkdir ~/.tmp
 
 install_status () {
-  $1 && echo [OK] $2 >> .tmp/status.txt || echo [Failure] $2 >> .tmp/status.txt
+  $1 && echo [OK] $2 >> ~/.tmp/status.txt || echo [Failure] $2 >> ~/.tmp/status.txt
 }
 
 
