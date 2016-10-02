@@ -198,6 +198,10 @@ alias atom="atom ~/Code --disable-gpu &"
 ' >> ~/.bashrc
 fi
 
+if $is_termux; then
+  echo '
+source ~/.bashrc
+' >> ~/.bash_profile
 
 email_name=jonathan.verrecchia
 email_provider=@gmail.com
