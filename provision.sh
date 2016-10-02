@@ -202,6 +202,7 @@ if $is_termux; then
   echo '
 source ~/.bashrc
 ' >> ~/.bash_profile
+fi
 
 email_name=jonathan.verrecchia
 email_provider=@gmail.com
