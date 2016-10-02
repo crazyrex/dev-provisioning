@@ -244,7 +244,7 @@ fi
 echo '
 Then run:
   source ~/.bashrc
-  git clone [Github Repo]
+  gcl [Github Repo]
   cd <repo>
   ni
 
