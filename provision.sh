@@ -170,6 +170,7 @@ parse_git_branch() {
 }
 export PS1="\W\[\033[36m\]\$(parse_git_branch)\[\033[00m\] $ "
 
+alias l="ls -lA1"
 alias ga="git add"
 alias gc="git commit"
 alias gch="git checkout"
