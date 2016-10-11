@@ -79,6 +79,7 @@ if $is_ubuntu; then
   install_status 'apm i atom-ternjs' 'Atom: atom-ternjs'
   install_status 'apm i git-plus' 'Atom: git-plus'
   install_status 'apm i git-hide' 'Atom: git-hide'
+  install_status 'apm i linter-flow' 'Atom: linter-flow'
   install_status 'apm i monokai' 'Atom: monokai'
 
   echo '"*":
@@ -112,6 +113,8 @@ if $is_ubuntu; then
     softWrap: true
   "exception-reporting":
     userId: "823c51ef-3832-c8de-dcc7-c51e3c5cfd49"
+  "linter-flow":
+    executablePath: "node_modules/.bin/flow"
   minimap:
     plugins:
       "highlight-selected": true
