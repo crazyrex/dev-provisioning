@@ -160,11 +160,11 @@ let g:syntastic_check_on_open = 0
 " >> ~/.vimrc
 
 if $is_ubuntu; then
-  install_status 'sudo npm i -g gulp' 'Gulp'
+  install_status 'sudo npm i -g yarn' 'Yarn'
 fi
 
 if $is_termux; then
-  install_status 'npm i -g gulp' 'Gulp'
+  install_status 'npm i -g yarn' 'Yarn'
 fi
 
 echo '
