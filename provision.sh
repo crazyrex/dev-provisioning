@@ -188,6 +188,14 @@ alias nr="npm run"
 alias ni="npm install"
 alias nid="npm install --save-dev"
 alias nis="npm install --save"
+alias yi="yarn install"
+alias ya="yarn add"
+alias yd="yarn add --dev"
+alias yg="yarn global add"
+alias yu="yarn upgrade"
+alias ys="yarn start"
+alias yt="yarn test"
+alias yr="yarn run"
 
 export GIT_EDITOR=vim
 export VISUAL=vim
