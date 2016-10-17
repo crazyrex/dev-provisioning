@@ -273,6 +273,8 @@ Then run:
 '
 
 if $is_ubuntu; then
+  # Allows shared folders via VirtualBox
+  sudo adduser verekia vboxsf
   google-chrome --disable-gpu 'http://localhost:8000' &
   google-chrome --disable-gpu 'https://github.com/verekia?tab=repositories' &
   atom ~/Code --disable-gpu &
