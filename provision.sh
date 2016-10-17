@@ -256,7 +256,8 @@ fi
 
 if $is_ubuntu; then
   echo '
-Install Chrome Extensions:
+Install manually the following Chrome Extensions:
+- https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc
 - https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
 - https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd'
 fi
