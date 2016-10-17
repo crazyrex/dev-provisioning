@@ -254,6 +254,12 @@ Zoom-in to adjust font size.
 Set style to Monokai.'
 fi
 
+if $is_ubuntu; then
+  echo '
+Install Chrome Extensions:
+- https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
+- https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd'
+fi
 
 echo '
 Then run:
