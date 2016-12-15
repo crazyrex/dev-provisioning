@@ -100,6 +100,9 @@ if $is_ubuntu; then
       "source.js": [
         "jsx"
       ]
+      "source.gfm": [
+        "txt"
+      ]
     openEmptyEditorOnStart: false
     themes: [
       "one-dark-ui"
