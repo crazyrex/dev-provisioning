@@ -77,7 +77,6 @@ if $is_ubuntu; then
   install_status 'apm i minimap-highlight-selected' 'Atom: minimap-highlight-selected'
   install_status 'apm i autoclose-html' 'Atom: autoclose-html'
   install_status 'apm i atom-ternjs' 'Atom: atom-ternjs'
-  install_status 'apm i git-plus' 'Atom: git-plus'
   install_status 'apm i git-hide' 'Atom: git-hide'
   install_status 'apm i linter-flow' 'Atom: linter-flow'
   install_status 'apm i monokai' 'Atom: monokai'
