@@ -198,6 +198,7 @@ alias yu="yarn upgrade"
 alias ys="yarn start"
 alias yt="yarn test"
 alias yr="yarn run"
+alias yx="yarn stop"
 alias v="vim"
 
 export GIT_EDITOR=vim
