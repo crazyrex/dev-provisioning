@@ -80,6 +80,7 @@ if $is_ubuntu; then
   install_status 'apm i git-hide' 'Atom: git-hide'
   install_status 'apm i linter-flow' 'Atom: linter-flow'
   install_status 'apm i monokai' 'Atom: monokai'
+  install_status 'apm i toggle-quotes'
 
   echo '"*":
   "autoclose-html":
@@ -121,6 +122,8 @@ if $is_ubuntu; then
     plugins:
       "highlight-selected": true
       "highlight-selectedDecorationsZIndex": 0
+  "toggle-quotes":
+    quoteCharacters: "\"'`"
   welcome:
     showOnStartup: false
 ' > ~/.atom/config.cson
