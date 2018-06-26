@@ -205,6 +205,7 @@ alias yx="yarn stop"
 alias yl="yarn lint"
 alias yc="yarn check-all"
 alias yds="yarn dev:start"
+alias dc="docker-compose"
 alias v="vim"
 
 export GIT_EDITOR=vim
